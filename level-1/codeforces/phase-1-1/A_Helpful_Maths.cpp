@@ -12,23 +12,23 @@ using namespace std;
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
+int arr[4];
 int t = 1;
 
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
+    string s; bool flag = 1;
+    cin >> s;
+    frni(i, s.length()){
+        if(s[i] != '+') arr[s[i] - '0']++;
+    }
+    for (int i = 1; i <= 3; ++i)
     {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+        if(arr[i] != 0){
+            if(flag){cout << i; arr[i]--; flag = 0;}
+            frni(j, arr[i]) cout << '+' << i;
         }
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    
 }
 
 int main(){

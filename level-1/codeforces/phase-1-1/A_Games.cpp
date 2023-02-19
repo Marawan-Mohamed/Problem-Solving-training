@@ -11,24 +11,23 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 30 + 5;
+int home[N];
 int t = 1;
-
+int guest[105];
 void solve(){
     int n;
-    bool ans =0;
     cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
-        }
+    frni(i, n){
+        int tmp;
+        cin >> home[i] >> tmp;
+        guest[tmp]++;
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    int ans = 0;
+    frni(i, n){
+        ans += guest[home[i]];
+    }
+    cout << ans << endl;
 }
 
 int main(){

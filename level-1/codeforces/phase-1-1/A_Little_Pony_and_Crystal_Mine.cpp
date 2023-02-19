@@ -16,19 +16,40 @@ int t = 1;
 
 void solve(){
     int n;
-    bool ans =0;
     cin >> n;
-    for (int i = 0; i < n; ++i)
+    for (int i = 1, _n = n / 2 + 1; i <= _n; ++i)
     {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+        int tmp = 2 * i - 1;
+        for (int j = 0; j < (n - tmp) / 2; ++j)
+        {
+            cout << '*';
         }
+        for(int j = 0; j < tmp; ++j){
+            cout << 'D';
+        }
+        for (int j = 0; j < (n - tmp) / 2; ++j)
+        {
+            cout << '*';
+        }
+        cout << endl;
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    for (int i = n / 2; i > 0; --i)
+    {
+        int tmp = 2 * i - 1;
+        for (int j = 0; j < (n - tmp) / 2; ++j)
+        {
+            cout << '*';
+        }
+        for(int j = 0; j < tmp; ++j){
+            cout << 'D';
+        }
+        for (int j = 0; j < (n - tmp) / 2; ++j)
+        {
+            cout << '*';
+        }
+        cout << endl;
+    }
+    
 }
 
 int main(){

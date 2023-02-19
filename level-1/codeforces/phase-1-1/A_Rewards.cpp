@@ -3,7 +3,6 @@ using namespace std;
 
 #define ll long long
 #define endl '\n'
-#define frni(i, _n_)    for(int i = 0, _n = _n_; i < _n; ++i)
 #define SHORT_MAX       ((short)0x7FFF)
 #define SHORt_MIN       ((short)0x8000)
 #define USHORT_MAX      ((unsigned short)0xFFFF)
@@ -15,20 +14,22 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
-        }
+    int a = 0, b = 0, n;
+    for (int i = 0; i < 3; ++i){
+        int tmp;
+        cin >> tmp;
+        a += tmp;
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    a = ceil(a / 5.0);
+    for (int i = 0; i < 3; ++i){
+        int tmp;
+        cin >> tmp;
+        b += tmp;
+    }
+    b = ceil(b / 10.0);
+    cin >> n;
+    if((a + b) > n) cout << "NO\n";
+    else cout << "YES\n";
 }
 
 int main(){

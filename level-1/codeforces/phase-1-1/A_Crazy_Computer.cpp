@@ -11,24 +11,24 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 1e5 + 5;
+int w[N];
 int t = 1;
 
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
+    int n, c;
+    cin >> n >> c;
+    int word = 0;
+    for (int i = 1; i <= n; ++i)
     {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+        cin >> w[i];
+        if(w[i] - w[i - 1] <= c){
+            word++;
+        }else{
+            word = 1;
         }
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    cout << word << endl;
 }
 
 int main(){

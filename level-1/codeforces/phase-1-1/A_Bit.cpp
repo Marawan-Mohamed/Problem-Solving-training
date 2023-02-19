@@ -12,27 +12,18 @@ using namespace std;
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
-int t = 1;
+int t = 1, x = 0;
 
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
-        }
-    }
-    cout << ((ans)?"YES\n":"NO\n");
+    string s;
+    cin >> s;
+    if(s[1] == '+') x++;
+    else x--;
 }
 
 int main(){
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-    // cin >> t;
+    cin >> t;
     while(t--) solve();
+    cout << x << endl;
 }

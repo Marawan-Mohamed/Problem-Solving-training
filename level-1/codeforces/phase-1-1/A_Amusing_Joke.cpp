@@ -3,7 +3,6 @@ using namespace std;
 
 #define ll long long
 #define endl '\n'
-#define frni(i, _n_)    for(int i = 0, _n = _n_; i < _n; ++i)
 #define SHORT_MAX       ((short)0x7FFF)
 #define SHORt_MIN       ((short)0x8000)
 #define USHORT_MAX      ((unsigned short)0xFFFF)
@@ -13,22 +12,31 @@ using namespace std;
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
-
+int freq[26];
+int freq2[26];
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
+    string guest, host, pile;
+    cin >> guest >> host >> pile;
+    for (int i = 0, n = guest.length(); i < n; i++)
     {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+        freq[guest[i] - 'A']++;
+    }
+    for (int i = 0, n = host.length(); i < n; i++)
+    {
+        freq[host[i] - 'A']++;
+    }
+    for (int i = 0, n = pile.length(); i < n; i++)
+    {
+        freq2[pile[i] - 'A']++;
+    }
+    for (int i = 0; i < 26; i++)
+    {
+        if(freq[i] != freq2[i]){
+            cout << "NO\n";
+            return;
         }
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    cout << "YES\n";
 }
 
 int main(){

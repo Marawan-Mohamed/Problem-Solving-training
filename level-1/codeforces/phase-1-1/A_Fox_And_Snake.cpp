@@ -15,20 +15,25 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int n;
-    bool ans =0;
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+    int n, m;
+    cin >> n >> m;
+    bool r = 1;
+    frni(i, n){
+        if(i % 2 == 0){
+            frni(j, m) cout << "#";
+        }else{
+            if(r){
+                frni(j, m - 1) cout << ".";
+                cout << "#";
+                r = 0;
+            }else{
+                cout << "#";
+                frni(j, m - 1) cout << ".";
+                r = 1;
+            }
         }
+        cout << endl;
     }
-    cout << ((ans)?"YES\n":"NO\n");
 }
 
 int main(){

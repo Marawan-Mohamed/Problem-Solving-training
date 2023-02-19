@@ -11,24 +11,38 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 1000 + 5;
+int cards[N];
 int t = 1;
 
 void solve(){
     int n;
-    bool ans =0;
     cin >> n;
-    for (int i = 0; i < n; ++i)
+    frni(i, n) cin >> cards[i];
+    int s = 0, d = 0;
+    int p1 = 0, p2 = n - 1, i = 0;
+    while (p2 >= p1)
     {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+        if(i % 2 == 0){
+            if(cards[p2] > cards[p1]){
+                s += cards[p2];
+                p2--;
+            }else{
+                s += cards[p1];
+                p1++;
+            }
+        }else{
+            if(cards[p2] > cards[p1]){
+                d += cards[p2];
+                p2--;
+            }else{
+                d += cards[p1];
+                p1++;
+            }
         }
+        i++;
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    cout << s << " " << d << endl;
 }
 
 int main(){

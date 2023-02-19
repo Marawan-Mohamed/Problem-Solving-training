@@ -16,19 +16,19 @@ int t = 1;
 
 void solve(){
     int n;
-    bool ans =0;
     cin >> n;
-    for (int i = 0; i < n; ++i)
-    {
-        string handle;
-        int b, a;
-        cin >> handle;
-        cin >> b >> a;
-        if((b >= 2400) && (a > b)){
-            ans = 1;
+    int pol =0, crim = 0;
+    frni(i, n){
+        int tmp;
+        cin >> tmp;
+        if(tmp == -1){
+            if(pol > 0) pol--;
+            else crim++;
+        }else{
+            pol += tmp;
         }
     }
-    cout << ((ans)?"YES\n":"NO\n");
+    cout << crim << endl;
 }
 
 int main(){
