@@ -11,31 +11,21 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
-bool a[105];
+const int N = 100 + 5;
+int a[N][2];
 int t = 1;
 
 void solve(){
-    int n, m;
-    cin >> n >> m;
-    frni(i, n){
-        int l, r;
-        cin >> l >> r;
-        for (int j = l; j <= r; ++j) a[j] = 1;
+    int n, k;
+    cin >> n >> k;
+    frni(i, n) cin >> a[i][0] >> a[i][1];
+    double ans = 0;
+    for (int i = 1; i < n; ++i)
+    {
+        ans += sqrt(pow((double)(a[i - 1][0] - a[i][0]), 2) + pow((double)(a[i - 1][1] - a[i][1]), 2));
     }
-    int ans = 0;
-    vector<int> tmp;
-    for(int i = 1; i <= m; ++i){
-        if(!a[i]){
-            ans++;
-            tmp.push_back(i);
-        }
-    }
-    cout << ans << endl;
-    for(auto i : tmp) cout << i << ' ';
-    cout << endl;
-
-
+    ans /= 50;
+    printf("%.09lf\n", ans * (double)k);
 }
 
 int main(){

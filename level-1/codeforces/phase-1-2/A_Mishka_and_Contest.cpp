@@ -12,30 +12,29 @@ using namespace std;
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
-bool a[105];
 int t = 1;
 
 void solve(){
-    int n, m;
-    cin >> n >> m;
+    int n, k;
+    cin >> n >> k;
+    deque<int> dq;
     frni(i, n){
-        int l, r;
-        cin >> l >> r;
-        for (int j = l; j <= r; ++j) a[j] = 1;
+        int tmp;
+        cin >> tmp;
+        dq.push_back(tmp);
     }
     int ans = 0;
-    vector<int> tmp;
-    for(int i = 1; i <= m; ++i){
-        if(!a[i]){
+    while (!dq.empty())
+    {
+        if(dq.front() <= k){
             ans++;
-            tmp.push_back(i);
-        }
+            dq.pop_front();
+        }else if(dq.back() <= k){
+            ans++;
+            dq.pop_back();
+        }else break;
     }
     cout << ans << endl;
-    for(auto i : tmp) cout << i << ' ';
-    cout << endl;
-
-
 }
 
 int main(){

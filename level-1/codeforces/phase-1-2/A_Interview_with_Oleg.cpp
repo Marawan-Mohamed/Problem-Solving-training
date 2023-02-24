@@ -12,30 +12,37 @@ using namespace std;
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
-bool a[105];
+vector<char> ans;
 int t = 1;
 
+
 void solve(){
-    int n, m;
-    cin >> n >> m;
-    frni(i, n){
-        int l, r;
-        cin >> l >> r;
-        for (int j = l; j <= r; ++j) a[j] = 1;
-    }
-    int ans = 0;
-    vector<int> tmp;
-    for(int i = 1; i <= m; ++i){
-        if(!a[i]){
-            ans++;
-            tmp.push_back(i);
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int f = 0;
+    int i = 0;
+    while (i < n)
+    {
+        if(s[i] == 'o' && s[i + 1] == 'g' && s[i + 2] == 'o'){
+            i += 3;
+            ans.push_back('*');
+            ans.push_back('*');
+            ans.push_back('*');
+            while (i < n - 1 && s[i] == 'g' && s[i + 1] == 'o')
+            {
+                i += 2;
+            }
+            continue;
+        }else{
+            ans.push_back(s[i]);
+            ++i;
         }
+
     }
-    cout << ans << endl;
-    for(auto i : tmp) cout << i << ' ';
+    frni(i, ans.size()) cout << ans[i];
     cout << endl;
-
-
 }
 
 int main(){

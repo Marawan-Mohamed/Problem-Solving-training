@@ -11,31 +11,30 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
-bool a[105];
+const int N = 2e3 + 5;
+pair<int, int> p[N];
 int t = 1;
 
 void solve(){
-    int n, m;
-    cin >> n >> m;
+    int n;
+    cin >> n;
+    bool rated = 0;
     frni(i, n){
-        int l, r;
-        cin >> l >> r;
-        for (int j = l; j <= r; ++j) a[j] = 1;
+        cin >> p[i].first >> p[i].second;
+        if(p[i].first != p[i].second) rated = 1;
     }
-    int ans = 0;
-    vector<int> tmp;
-    for(int i = 1; i <= m; ++i){
-        if(!a[i]){
-            ans++;
-            tmp.push_back(i);
+    if(rated){
+        cout << "rated\n";
+        return;
+    }
+    for (int i = 1; i < n; ++i)
+    {
+        if(p[i].first > p[i - 1].first){
+            cout << "unrated\n";
+            return;
         }
     }
-    cout << ans << endl;
-    for(auto i : tmp) cout << i << ' ';
-    cout << endl;
-
-
+    cout << "maybe\n";
 }
 
 int main(){
