@@ -13,28 +13,28 @@ using namespace std;
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
+const string alcohol[] = {"ABSINTH", "BEER", "BRANDY", "CHAMPAGNE", "GIN", "RUM", "SAKE", "TEQUILA", "VODKA", "WHISKEY", "WINE"};
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
+    int n;
+    cin >> n;
+    int ans = 0;
+    frni(i, n){
+        string tmp;
+        cin >> tmp;
+        if(isdigit(tmp[0])){
+            int tmpi = stoi(tmp);
+            if(tmpi < 18) ans++;
+        }else{
+            frni(j, 11){
+                if(tmp.compare(alcohol[j]) == 0){
+                    ans++;
+                    break;
                 }
             }
         }
     }
-    cout << "NO\n";
+    cout << ans << endl;
 }
 
 int main(){

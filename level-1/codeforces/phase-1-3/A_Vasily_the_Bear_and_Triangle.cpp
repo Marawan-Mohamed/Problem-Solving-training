@@ -15,26 +15,20 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
-        }
-    }
-    cout << "NO\n";
+    int x, y;
+    cin >> x >> y;
+    pair<int, int> a;
+    a.first = abs(x) + abs(y);
+    a.second = 0;
+    if(x < 0) a.first *= -1;
+    pair<int, int> b;
+    b.first = 0;
+    b.second = abs(x) + abs(y);
+    if(y < 0) b.second *= -1;
+    if(a.first < b.first)
+        cout << a.first << " " << a.second << " " << b.first << " " << b.second << endl;
+    else
+        cout << b.first << " " << b.second << " " << a.first << " " << a.second << endl;
 }
 
 int main(){

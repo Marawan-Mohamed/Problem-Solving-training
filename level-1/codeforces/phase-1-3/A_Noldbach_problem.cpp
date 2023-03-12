@@ -11,33 +11,41 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 2e3 + 5;
 int t = 1;
+vector<bool> isPrime(N, 1);
+vector<int> primes;
 
-void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
+void sieve(){
+    isPrime[0] = 0;
+    isPrime[1] = 0;
+    for(int i = 2; i < N; ++i){
+        if(isPrime[i]){
+            for(int j = i * i; j < N; j += i){
+                isPrime[j] = 0;
             }
+            primes.push_back(i);
         }
     }
-    cout << "NO\n";
+}
+
+void solve(){
+    int n, k;
+    cin >> n >> k;
+    int ans = 0;
+    frni(i, primes.size() - 1){
+        if(primes[i] + primes[i + 1] + 1 > n){
+            break;
+        }
+        if(isPrime[primes[i] + primes[i + 1] + 1]) ans++;
+    }
+    if(ans >= k){
+        cout << "YES\n";
+    }else cout << "NO\n";
 }
 
 int main(){
+    sieve();
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     // cin >> t;
     while(t--) solve();

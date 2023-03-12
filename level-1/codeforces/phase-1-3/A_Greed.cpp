@@ -12,29 +12,25 @@ using namespace std;
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
+vector<int> b(N);
 int t = 1;
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
+    int n;
+    cin >> n;
+    ll sum = 0;
+    frni(i, n){
+        ll tmp;
+        cin >> tmp;
+        sum += tmp;
     }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
-        }
+    frni(i, n){
+        cin >> b[i];
     }
-    cout << "NO\n";
+    sort(b.begin(), b.end(), greater<int>());
+    if(b[0] + b[1] >= sum) cout << "YES\n";
+    else cout << "NO\n";
+
 }
 
 int main(){

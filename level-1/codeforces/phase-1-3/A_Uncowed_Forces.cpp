@@ -15,26 +15,20 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
+    double m[5];
+    double w[5];
+    double x[] = {500, 1000, 1500, 2000, 2500};
+    frni(i, 5) cin >> m[i];
+    frni(i, 5) cin >> w[i];
+    int h1, h2;
+    cin >> h1 >> h2;
+    double ans = 0;
+    frni(i, 5){
+        ans += max(0.3 * x[i], (1.0 - (m[i] / 250.0)) * x[i] - (50.0 * w[i]));
     }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
-        }
-    }
-    cout << "NO\n";
+    ans += h1 * 100;
+    ans -= h2 * 50;
+    cout << (int)ans << endl;
 }
 
 int main(){

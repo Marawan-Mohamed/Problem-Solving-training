@@ -11,30 +11,24 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 50 + 5;
+pair<string, int> ai[N];
 int t = 1;
+bool sor(pair<string, int> a, pair<string, int> b){
+    return (a.second > b.second);
+}
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
+    int n;
+    cin >> n;
+    frni(i, n){
+        cin >> ai[i].first;
+        int plus, minus, a, b, c, d, e;
+        cin >> plus >> minus >> a >> b >> c >> d >> e;
+        ai[i].second = (plus * 100) - (minus * 50) + a + b + c + d + e;
     }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
-        }
-    }
-    cout << "NO\n";
+    sort(ai, ai + n, sor);
+    cout << ai[0].first << endl;
 }
 
 int main(){

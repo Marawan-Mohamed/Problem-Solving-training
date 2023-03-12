@@ -14,27 +14,35 @@ const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
 
+int chars[256];
+
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
+    chars['6'] = 1;
+    chars['7'] = 2;
+    chars['8'] = 3;
+    chars['9'] = 4;
+    chars['T'] = 5;
+    chars['J'] = 6;
+    chars['Q'] = 7;
+    chars['K'] = 8;
+    chars['A'] = 9;
+    char trump;
+    cin >> trump;
+    string s1, s2;
+    cin >> s1 >> s2;
+    if(trump == s1[1] && trump != s2[1]){
+        cout << "YES\n";
+        return;
     }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
+    if(s2[1] == s1[1]){
+        if((chars[s1[0]] > chars[s2[0]])){
+            cout << "YES\n";
+        }else{
+            cout << "NO\n";
         }
+    }else{
+        cout << "NO\n";
     }
-    cout << "NO\n";
 }
 
 int main(){

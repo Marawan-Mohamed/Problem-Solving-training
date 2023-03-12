@@ -13,31 +13,38 @@ using namespace std;
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
+vector <int> lucky;
+void pre(){
+    for(int i = 1; i < 778; ++i){
+        int tmp = i;
+        bool lu = 1;
+        while (tmp != 0)
+        {
+            if(tmp % 10 != 7 && tmp % 10 != 4){
+                lu = 0;
+                break;
+            }
+            tmp /= 10;
+        }
+        if(lu) 
+            lucky.push_back(i);
+    }
+}
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
+    int n;
+    cin >> n;
+    for(auto i : lucky){
+        if(n % i == 0){
+            cout << "YES\n";
+            return;
         }
     }
     cout << "NO\n";
 }
 
 int main(){
+    pre();
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     // cin >> t;
     while(t--) solve();

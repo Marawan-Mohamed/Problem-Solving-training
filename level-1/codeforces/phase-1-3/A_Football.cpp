@@ -15,26 +15,24 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
+    int n;
+    cin >> n;
+    string s1;
+    string s2;
+    cin >> s1;
+    int sc[2] = {1};
+    frni(i, n - 1){
+        string tmp;
+        cin >> tmp;
+        if(tmp.compare(s1) != 0){
+            s2 = tmp;
+            sc[1]++;
+        }else{
+            sc[0]++;
         }
     }
-    cout << "NO\n";
+    if(sc[0] > sc[1]) cout << s1 << endl;
+    else cout << s2 << endl;
 }
 
 int main(){

@@ -14,27 +14,24 @@ const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
 
+bool sor(pair<int, int>a, pair<int, int>b){
+    return a.first < b.first;
+}
+
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
-    }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
-            }
+    int s, n;
+    cin >> s >> n;
+    pair<int, int> a[n];
+    frni(i, n) cin >> a[i].first >> a[i].second;
+    sort(a, a + n, sor);
+    frni(i, n){
+        if(a[i].first >= s){
+            cout << "NO\n";
+            return;
         }
+        s += a[i].second;
     }
-    cout << "NO\n";
+    cout << "YES\n";
 }
 
 int main(){

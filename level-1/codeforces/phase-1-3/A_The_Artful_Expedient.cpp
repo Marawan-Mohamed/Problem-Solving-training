@@ -11,30 +11,33 @@ using namespace std;
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const int N = 2e3 + 5;
+int x[N];
+int y[N];
+const int NF = 2e6 + 5;
+bool freq[NF];
 int t = 1;
 
 void solve(){
-    int a[6];
-    int sum = 0;
-    frni(i, 6) {
-        cin >> a[i];
-        sum += a[i];
+    int n;
+    cin >> n;
+    frni(i, n) {
+        cin >> x[i];
+        freq[x[i]] = 1;
     }
-    frni(i, 6){
-        frni(j, 6){
-            if(i == j) continue;
-            frni(k, 6){
-                if(i == k) continue;
-                if(k == j) continue;
-                if((a[i] + a[j] + a[k]) * 2 == sum){
-                    cout << "YES\n";
-                    return;
-                }
+    frni(i, n) {
+        cin >> y[i];
+        freq[y[i]] = 1;
+    }
+    int ans = 0;
+    frni(i, n){
+        frni(j, n){
+            if(freq[(x[i] ^ y[j])]){
+                ans++;
             }
         }
     }
-    cout << "NO\n";
+    cout << ((ans % 2 == 0)?"Karen\n":"Koyomi\n");
 }
 
 int main(){
