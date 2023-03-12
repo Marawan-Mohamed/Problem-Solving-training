@@ -15,21 +15,19 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int al, ar, bl, br;
-    cin >> al >> ar >> bl >> br;
-    // if(al == br || ar == bl){
-    //     cout << "YES\n";
-    // }else if(bl - ar < 3 && ar - bl < 2){
-    //     cout << "YES\n";
-    // }else if(br - al < 3 && al - br < 2){
-    //     cout << "YES\n";
-    // }else{
-    //     cout << "NO\n";
-    // }
-    if((al - 1 <= br && br <= (al + 1) * 2) || (ar - 1 <= bl && bl <= (ar + 1)* 2)){
-        cout << "YES\n";
+    int x, y;
+    cin >> x >> y;
+    double r = sqrt((double)(x * x) + (double)(y * y));
+    if((r - (ll)r) == 0.0){
+        cout << "black\n";
+        return;
+    }
+    if(x * y > 0){
+        if((int)r % 2 == 0) cout << "black\n";
+        else cout << "white\n";
     }else{
-        cout << "NO\n";
+        if((int)r % 2 == 1) cout << "black\n";
+        else cout << "white\n";
     }
 }
 

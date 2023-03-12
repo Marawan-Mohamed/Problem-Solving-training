@@ -15,22 +15,13 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int al, ar, bl, br;
-    cin >> al >> ar >> bl >> br;
-    // if(al == br || ar == bl){
-    //     cout << "YES\n";
-    // }else if(bl - ar < 3 && ar - bl < 2){
-    //     cout << "YES\n";
-    // }else if(br - al < 3 && al - br < 2){
-    //     cout << "YES\n";
-    // }else{
-    //     cout << "NO\n";
-    // }
-    if((al - 1 <= br && br <= (al + 1) * 2) || (ar - 1 <= bl && bl <= (ar + 1)* 2)){
-        cout << "YES\n";
-    }else{
-        cout << "NO\n";
-    }
+    int x, y, a, b;
+    cin >> x >> y >> a >> b;
+    int ans = 0;
+    // int tmp1 = 0;
+    int tmp = lcm(x, y);
+    ans = (b / tmp) - ceil((double)a / (double)tmp) + 1;
+    cout << ans << endl;
 }
 
 int main(){

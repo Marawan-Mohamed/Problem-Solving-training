@@ -10,27 +10,18 @@ using namespace std;
 #define LL_MAX          ((long long)0x7FFFFFFFFFFFFFFF)
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
-const long long MOD = 1e9 + 7, MOD2 = 998244353;
+const long long MOD = 1e6 + 3, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int al, ar, bl, br;
-    cin >> al >> ar >> bl >> br;
-    // if(al == br || ar == bl){
-    //     cout << "YES\n";
-    // }else if(bl - ar < 3 && ar - bl < 2){
-    //     cout << "YES\n";
-    // }else if(br - al < 3 && al - br < 2){
-    //     cout << "YES\n";
-    // }else{
-    //     cout << "NO\n";
-    // }
-    if((al - 1 <= br && br <= (al + 1) * 2) || (ar - 1 <= bl && bl <= (ar + 1)* 2)){
-        cout << "YES\n";
-    }else{
-        cout << "NO\n";
+    int n;
+    cin >> n;
+    int ans = 1;
+    for(int i = 2; i <= n; ++i){
+        ans = (ans * 3) % MOD;
     }
+    cout << ans << endl;
 }
 
 int main(){
