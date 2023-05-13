@@ -17,10 +17,22 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    string o, e;
+    cin >> o >> e;
+    int i = 0, j = 0;
+    while (o[i] != 0 || e[j] != 0)
+    {
+        if(o[i] != 0){
+            cout << o[i];
+            ++i;
+        }
+        if(e[j] != 0){
+            cout << e[j];
+            ++j;
+        }
+    }
+    cout << endl;
+    
 }
 
 int main(){

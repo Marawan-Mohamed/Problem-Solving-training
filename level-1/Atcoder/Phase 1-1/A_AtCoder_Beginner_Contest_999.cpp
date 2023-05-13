@@ -17,10 +17,18 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n;
+    cin >> n;
+    int ans = 0;
+    int i = 0;
+    while (n != 0)
+    {
+        if(n % 10 == 9) ans += pow(10, i);
+        else ans += 9 * pow(10, i);
+        i++;
+        n /= 10;
+    }
+    cout << ans;
 }
 
 int main(){

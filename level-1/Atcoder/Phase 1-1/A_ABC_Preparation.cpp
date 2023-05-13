@@ -17,10 +17,13 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int a[4];
+    int ans = INT_MAX;
+    frni(i, 4){
+        cin >> a[i];
+        ans = min(ans, a[i]);
+    }
+    cout << ans << endl;
 }
 
 int main(){

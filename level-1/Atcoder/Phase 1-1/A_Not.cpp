@@ -19,8 +19,7 @@ int t = 1;
 void solve(){
     int x;
     cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    cout << (x ^ 1) << endl;
 }
 
 int main(){

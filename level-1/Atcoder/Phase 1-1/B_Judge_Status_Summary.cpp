@@ -17,10 +17,21 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n;
+    cin >> n;
+    vector<int> a(4, 0);
+    frni(i, n){
+        string s;
+        cin >> s;
+        if(s.compare("AC") == 0) a[0]++;
+        else if(s.compare("WA") == 0) a[1]++;
+        else if(s.compare("TLE") == 0) a[2]++;
+        else a[3]++;
+    }
+    cout << "AC x " << a[0] << endl;
+    cout << "WA x " << a[1] << endl;
+    cout << "TLE x " << a[2] << endl;
+    cout << "RE x " << a[3] << endl;
 }
 
 int main(){

@@ -10,16 +10,18 @@ using namespace std;
 #define LL_MAX          ((long long)0x7FFFFFFFFFFFFFFF)
 #define LL_MIN          ((long long)0x8000000000000000)
 #define ULL_MAX         ((unsigned long long)0xFFFFFFFFFFFFFFFF)
-#define yes             cout << "YES\n"
-#define no              cout << "NO\n"
+#define yes             cout << "Yes\n"
+#define no              cout << "No\n"
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
 const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
+    vector<int> g1 = {1, 3, 5, 7, 8, 10, 12};
+    vector<int> g2 = {4, 6, 9, 11};
+    int x, y;
+    cin >> x >> y;
+    if((search_n(g1.begin(), g1.end(), 1, x) != g1.end() && search_n(g1.begin(), g1.end(), 1, y) != g1.end()) || (search_n(g2.begin(), g2.end(), 1, x) != g2.end() && search_n(g2.begin(), g2.end(), 1, y) != g2.end())) yes;
     else no;
 }
 

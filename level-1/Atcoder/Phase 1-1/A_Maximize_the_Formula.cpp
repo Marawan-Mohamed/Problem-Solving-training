@@ -17,10 +17,17 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int a, b, c;
+    cin >> a >> b >> c;
+    int ans;
+    if(a >= b && a >= c){
+        ans = 10 * a + b + c;
+    }else if(b >= a && b >= c){
+        ans = a + 10 * b + c;
+    }else{
+        ans = a + b + 10 * c;
+    }
+    cout << ans << endl;
 }
 
 int main(){

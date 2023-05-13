@@ -19,8 +19,8 @@ int t = 1;
 void solve(){
     int x;
     cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    if(x >= 0) cout << x << endl;
+    else cout << 0 << endl;
 }
 
 int main(){

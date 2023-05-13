@@ -17,10 +17,11 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int r;
+    cin >> r;
+    if(r < 1200) cout << "ABC\n";
+    else if(r < 2800) cout << "ARC\n";
+    else cout << "AGC\n";
 }
 
 int main(){

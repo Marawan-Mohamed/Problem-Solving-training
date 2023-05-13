@@ -17,10 +17,9 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+    cout << (char)toupper(s1[0]) << (char)toupper(s2[0]) << (char)toupper(s3[0]) << endl;
 }
 
 int main(){

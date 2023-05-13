@@ -17,10 +17,19 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int h, w;
+    cin >> h >> w;
+    vector<string> pic(h);
+    frni(i, h) cin >> pic[i];
+    frni(i, w + 2) cout << '#';
+    cout << endl;
+    frni(i, h){
+        cout << '#';
+        cout << pic[i];
+        cout << '#' << endl;
+    }
+    frni(i, w + 2) cout << '#';
+    cout << endl;
 }
 
 int main(){

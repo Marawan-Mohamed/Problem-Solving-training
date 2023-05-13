@@ -17,10 +17,14 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int x[5];
+    frni(i, 5){
+        cin >> x[i];
+        if(x[i] == 0){
+            cout << i + 1 << endl;
+            return;
+        }
+    }
 }
 
 int main(){

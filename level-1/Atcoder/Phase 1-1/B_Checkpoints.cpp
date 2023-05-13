@@ -17,10 +17,23 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n, m;
+    cin >> n >> m;
+    vector<pair<int, int>> a(n);
+    vector<pair<int, int>> b(m);
+    frni(i, n) cin >> a[i].first >> a[i].second;
+    frni(i, m) cin >> b[i].first >> b[i].second;
+    frni(i, n){
+        int tmp = INT_MAX;
+        int ans = 0;
+        frni(j, m){
+            if(tmp > abs(a[i].first - b[j].first) + abs(a[i].second - b[j].second)){
+                tmp = abs(a[i].first - b[j].first) + abs(a[i].second - b[j].second);
+                ans = j + 1;
+            }
+        }
+        cout << ans << endl;
+    }
 }
 
 int main(){

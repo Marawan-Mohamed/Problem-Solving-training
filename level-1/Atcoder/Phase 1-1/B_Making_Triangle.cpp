@@ -17,10 +17,26 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n;
+    cin >> n;
+    vector<int> l(n);
+    frni(i, n) cin >> l[i];
+    int ans = 0;
+    frni(i, n){
+        for(int j = i + 1; j < n; ++j){
+            if(l[i] == l[j]) continue;
+            for(int k = j + 1; k < n; ++k){
+                if(l[k] == l[i] || l[k] == l[j]) continue;
+                vector<int> tmp(3);
+                tmp[0] = l[i];
+                tmp[1] = l[j];
+                tmp[2] = l[k];
+                sort(tmp.begin(), tmp.end());
+                if(tmp[0] + tmp[1] > tmp[2]) ans++;
+            }
+        }
+    }
+    cout << ans << endl;
 }
 
 int main(){

@@ -13,14 +13,29 @@ using namespace std;
 #define yes             cout << "YES\n"
 #define no              cout << "NO\n"
 const long long MOD = 1e9 + 7, MOD2 = 998244353;
-const int N = 2e5 + 5;
+const ll N = 1e18;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n;
+    cin >> n;
+    vector<ll> a(n);
+    frni(i, n) cin >> a[i];
+    sort(a.begin(), a.end());
+    ll ans = 1;
+    frni(i, n){
+        if(a[i] == 0){
+            ans = 0;
+            break;
+        }
+        if(N / a[i] >= ans){
+            ans *= a[i];
+        }else{
+            cout << "-1\n";
+            return;
+        }
+    }
+    cout << ans << endl;
 }
 
 int main(){

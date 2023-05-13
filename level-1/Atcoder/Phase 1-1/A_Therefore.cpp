@@ -17,10 +17,16 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n;
+    cin >> n;
+    n %= 10;
+    if(n == 2 || n == 4 || n == 5 || n == 7 || n == 9){
+        cout << "hon\n";
+    }else if(n == 0 || n == 1 || n == 6 || n == 8){
+        cout << "pon\n";
+    }else{
+        cout << "bon\n";
+    }
 }
 
 int main(){

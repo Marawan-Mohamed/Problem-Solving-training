@@ -17,10 +17,17 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    int n, d;
+    cin >> n >> d;
+    int ans = 0;
+    frni(i, n){
+        double x, y;
+        cin >> x >> y;
+        if(sqrt(x * x + y * y) <= (double)d){
+            ans++;
+        }
+    }
+    cout << ans;
 }
 
 int main(){

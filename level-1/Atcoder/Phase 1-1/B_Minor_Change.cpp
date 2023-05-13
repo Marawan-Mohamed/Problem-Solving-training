@@ -17,10 +17,13 @@ const int N = 2e5 + 5;
 int t = 1;
 
 void solve(){
-    int x;
-    cin >> x;
-    if(x == 7 || x == 5 || x == 3) yes;
-    else no;
+    string s, t;
+    cin >> s >> t;
+    int ans = 0;
+    frni(i, s.length()){
+        if(s[i] != t[i]) ans++;
+    }
+    cout << ans << endl; 
 }
 
 int main(){
